@@ -1,0 +1,65 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{exercise-sheet}
+\usepackage{global-macros}
+\usepackage{biblatex}
+\usepackage{csquotes}
+\usepackage{hyperref}
+
+\hfuzz=16pt
+
+\addbibresource{../bib/references.bib}
+
+\title{Aprendizado de Máquinas -- Avaliação 1} 
+\author{Caio Lins}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Apresentação do Dataset}
+
+Como banco de dados para ser utilizado no projeto final da disciplina, escolhemos o \emph{``Census Income Data Set''}\cite{uci}.
+O dataset foi extraído da base de dados do censo populacional americano de 1994.
+Cada instância representa um indivíduo, que possui algumas caracteríscas sociais e econômicas disponíveis, correspondentes às colunas da tabela.
+Os dados foram extraídos já com um problema de classificação binária em mente: a coluna relativa à renda anual do indivíduo só informa se ele ganha mais ou menos que \$50 000 por ano.
+
+Para ler e manipular os dados, utilizamos a versão 1.2.4. da biblioteca \emph{Pandas} \cite{pandas}, da linguagem de programção \emph{Python} \cite{python}, versão 3.8.10.
+No repositório da UCI, os dados se encontram previamente dividos em um conjunto para treino e outro para teste, na proporção 2:1.
+Nós juntamos as duas tabelas para obter um data frame com todas as instâncias disponíveis.
+No total, são 48 840 entradas com 14 atributos distintos, listados a seguir:
+
+\begin{itemize}
+    \item \verb|Age|.
+        Variável numérica que assume valores inteiros.
+        Corresponde à idade do indivíduo.
+
+    \item \verb|workclass|.
+        Variável categórica que assume os seguintes valores:
+        \verb|Private|, \verb|Self-emp-not-inc|, \verb|Self-em-inc|, \verb|Local-gov|, \verb|State-gov|, \verb|Federal-gov|, \verb|Without-pay|, \verb|Never-worked|.
+
+    \item \verb|fnlwgt|.
+        Variável numérica que assume valores inteiros.
+        É um peso calculado pelo \href{https://www.census.gov/programs-surveys/cps/technical-documentation/methodology/weighting.html}{\emph{United States Census Bureau}} que indica quantas pessoas aquele indivíduo representa na população .
+        Ele é necessário devido às estratégias de amostragem utilizadas para decidir quem será entrevistado no censo.
+
+    \item \verb|education|.
+        Variável categórica que assume os seguintes valores:
+        \verb|Preschool|, \verb|1st-4th|, \verb|5th-6th|, \verb|7th-8th|, \verb|9th|, \verb|10th|, \verb|11th|, \verb|12th|, \verb|HS-grad|, \verb|Some-college|, \verb|Assoc-voc|, \verb|Assoc-acdm|, \verb|Bachelors|, \verb|Masters|, \verb|Prof-school|, \verb|Doctorate|.
+        Corresponde ao grau máximo de educação obtido pelo indivíduo.
+
+    \item \verb|education_num|.
+        Variável numérica categórica que assume valores inteiros entre 1 e 16.
+        Corresponde a uma codificação numérica da educação do indivíduo, na ordem apresentada anteriormente.
+
+    \item \verb|marital_status|.
+        Variável categórica que assume os seguintes valores:
+        \verb|Married-civ-spouse|, \verb|Divorced|, \verb|Never-married|, \verb|Separated|, \verb|Widowed|, \verb|Married-spouse-absent|, \verb|Married-AF-spouse|.
+        Corresponde à situação conjugal do indivíduo.
+
+\end{itemize}
+
+\printbibliography
+
+\end{document}
