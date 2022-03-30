@@ -1,15 +1,19 @@
 # Fdb version 3
-["biber .out/main"] 1648309116 ".out/main.bcf" ".out/main.bbl" ".out/main" 1648311991
-  "../bib/references.bib" 1648309103 834 18b9af30fe64b7182c5098573def2134 ""
-  ".out/main.bcf" 1648311990 107010 38ddb0ba8510e20695436c327a044c9c "lualatex"
+["biber .out/main"] 1648323172 ".out/main.bcf" ".out/main.bbl" ".out/main" 1648408609
+  "../bib/references.bib" 1648312023 833 3d17473a9e874dd29c9e709ab1b53073 ""
+  ".out/main.bcf" 1648408608 107010 38ddb0ba8510e20695436c327a044c9c "lualatex"
   (generated)
   ".out/main.blg"
   ".out/main.bbl"
-["lualatex"] 1648311989 "main.tex" ".out/main.pdf" "main" 1648311991
-  ".out/main.aux" 1648311990 1806 d8317c0af3e1aa95a67261b14c40ea8c "lualatex"
-  ".out/main.bbl" 1648309117 4985 d3752f23231d2ba90cf97fc2be4f4288 "biber .out/main"
-  ".out/main.out" 1648311990 170 5bf154fcacf34bc555fbe96a2127d259 "lualatex"
-  ".out/main.run.xml" 1648311990 2350 fad501e68d11c606b23d0cb57864ca89 "lualatex"
+["lualatex"] 1648408607 "main.tex" ".out/main.pdf" "main" 1648408609
+  "../fig/age.pdf" 1648335990 17436 521ffcc55fe2081c970b6628caac6631 ""
+  "../fig/corr_with_target.pdf" 1648408582 13960 29c8056bb732597128225ed0e90772a4 ""
+  "../fig/correlation.pdf" 1648331291 13742 55a296efa48b7a33fdd3ab2c23f942b2 ""
+  "../fig/hours_age_by_ed.pdf" 1648386308 245890 48045017a3eda492ab6159bfe98d2efa ""
+  ".out/main.aux" 1648408608 4543 bd56952d2e569533d6479a65bf68eabb "lualatex"
+  ".out/main.bbl" 1648323173 4985 d3752f23231d2ba90cf97fc2be4f4288 "biber .out/main"
+  ".out/main.out" 1648408608 898 d06b91bd1a85aca826fde77cd8be5a3b "lualatex"
+  ".out/main.run.xml" 1648408608 2350 fad501e68d11c606b23d0cb57864ca89 "lualatex"
   "/home/caiolins/texlive/2021/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf" 1255129361 63012 5db69ad3c177ae338e5504d80d9e9eb6 ""
   "/home/caiolins/texlive/2021/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf" 1255129361 110496 b9c8767d4cc3bf3f4b21f676bf89aa78 ""
   "/home/caiolins/texlive/2021/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf" 1255129361 117732 558aeb4ada25b652cc2e9bcf0771e962 ""
@@ -40,6 +44,8 @@
   "/home/caiolins/texlive/2021/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm" 1229303445 688 37338d6ab346c2f1466b29e195316aa4 ""
   "/home/caiolins/texlive/2021/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm" 1229303445 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "/home/caiolins/texlive/2021/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm" 1229303445 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
+  "/home/caiolins/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
+  "/home/caiolins/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/home/caiolins/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/home/caiolins/texlive/2021/texmf-dist/tex/generic/babel-portuges/portuguese.ldf" 1612650671 6591 a7ed61b85ac7f17fff1eab8a4d2c3f52 ""
   "/home/caiolins/texlive/2021/texmf-dist/tex/generic/babel/babel.def" 1624912699 123026 b4d3dcb4c2dffde25d5d312c52d40091 ""
@@ -188,11 +194,11 @@
   "/home/caiolins/texlive/2021/texmf-var/web2c/luahbtex/lualatex.fmt" 1625324359 3372347 352cb8d41b6c472e38bb479e73261e92 ""
   "/home/caiolins/texmf/tex/latex/packages/exercise-sheet.sty" 1646321499 1406 90b6c2226cec49e6fbfbaeedfa89cf5c ""
   "/home/caiolins/texmf/tex/latex/packages/global-macros.sty" 1646346751 1215 57b3f5d9546605d4b342a1dc3624b5af ""
-  "main.tex" 1648311989 3289 eba054e9e193abaa93e6fcc35ba3dd68 ""
+  "main.tex" 1648408606 15049 60a73f80ecb82a3f390157b9c7642155 ""
   (generated)
-  ".out/main.out"
-  ".out/main.bcf"
   ".out/main.log"
+  ".out/main.out"
   ".out/main.aux"
   ".out/main.pdf"
   ".out/main.run.xml"
+  ".out/main.bcf"

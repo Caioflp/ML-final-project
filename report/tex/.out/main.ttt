@@ -1,0 +1,46 @@
+\begin{table}
+    \begin{center}
+        \begin{tabular}{lrrrr}
+        {} &           \verb|age| &  \verb|education_num| &  \verb|capital_gain| &  \verb|capital_loss| \\
+        \hline
+        mean  &     38.643857 &      10.078092 &   1079.067301 &     87.505897 \\
+        std   &     13.710652 &       2.570954 &   7452.168393 &    403.012415 \\
+        min   &     17.000000 &       1.000000 &      0.000000 &      0.000000 \\
+        25\%   &     28.000000 &       9.000000 &      0.000000 &      0.000000 \\
+        50\%   &     37.000000 &      10.000000 &      0.000000 &      0.000000 \\
+        75\%   &     48.000000 &      12.000000 &      0.000000 &      0.000000 \\
+        max   &     90.000000 &      16.000000 &  99999.000000 &   4356.000000 \\
+        \hline
+        \end{tabular}
+    \end{center}
+
+    \hspace{2.4cm}
+    \begin{tabular}{lrr}
+    {} &  \verb|hours_per_week| &        \verb|target| \\
+    \hline
+    mean  &       40.422400 &      0.239292 \\
+    std   &       12.391697 &      0.426655 \\
+    min   &        1.000000 &      0.000000 \\
+    25\%   &       40.000000 &      0.000000 \\
+    50\%   &       40.000000 &      0.000000 \\
+    75\%   &       45.000000 &      0.000000 \\
+    max   &       99.000000 &      1.000000 \\
+    \hline
+    \end{tabular}
+    \label{tab: describe}
+    \caption{Estatísticas descritivas para as variáveis numéricas do dataset.}
+\end{table}
+\efloatseparator
+ 
+\begin{table}
+    \centering
+    \begin{tabular}{l|c}
+        Atributo & Número de entradas faltantes \\
+        \hline
+        \verb|workclass| & 2799 \\
+        \verb|occupation| & 2809 \\
+        \verb|native_country| & 857 \\
+    \end{tabular}
+    \label{tab: missing_data}
+    \caption{Número de dados faltantes.}
+\end{table}
