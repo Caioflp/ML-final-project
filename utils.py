@@ -8,3 +8,4 @@ def get_data() -> pd.DataFrame:
     X = df.drop("target", axis=1)
     return train_test_split(X, y, test_size=0.25, random_state=42)
 
+# def get_models_path() -> str:
