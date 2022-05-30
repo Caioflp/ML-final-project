@@ -11,7 +11,7 @@ CLEANED_DATA_PATH = os.path.join(FILE_PATH, "./data/cleaned_us_census.csv")
 df = pd.read_csv(DATA_PATH, na_values=" ?")
 
 # For now, we discard missing values
-df.dropna(axis=0, inplace=True)
+# df.dropna(axis=0, inplace=True)
 
 # Format string type columns
 strip_list = ["workclass", "education","marital_status", "occupation",
@@ -28,8 +28,8 @@ df["race"].replace("Other", "other_race", inplace=True)
 
 # Replace strings in target column by ones and zeroes
 rep_dict_target = {
-    "<=50k": 0,
-    "<=50k.": 0,
+    "<=50k": -1,
+    "<=50k.": -1,
     ">50k": 1,
     ">50k.": 1
 }
@@ -45,6 +45,12 @@ df["marital_status"].replace(to_replace=rep_dict_marriage, inplace=True)
 
 # Drop useless columns (we already have `education_num`)
 df.drop(labels=["fnlwgt", "education"], axis=1, inplace=True)
+
+# for col in ["occupation", "workclass", "native_country"]:
+#     print(df[col].value_counts(dropna=False), end="\n\n")
+
+count_df = df[["occupation", "workclass", "native_country"]].isna().value_counts()
+print(count_df)
 
 # Get dummies
 df = pd.get_dummies(df, prefix=["wrk_cls",
@@ -69,4 +75,4 @@ df = pd.get_dummies(df, prefix=["wrk_cls",
                                  "sex",
                                  "native_country"])
 df.to_csv(CLEANED_DATA_PATH, index=False)
-df.info()
+# df.info()
