@@ -1,13 +1,10 @@
 import numpy as np
-import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV, StratifiedKFold
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
 from utils import *
-
-X_train, y_train = get_train_data()
 
 pipe = Pipeline([("scaler", StandardScaler()),
                  ("logit", LogisticRegression(penalty="elasticnet",
@@ -27,6 +24,7 @@ model = GridSearchCV(estimator=pipe,
                      n_jobs=4,
                      cv=cv,
                      verbose=3)
-model.fit(X_train, y_train)
 
-save_model(model, "logistic_regression", "test.joblib")
+X, y = get_data_for("logit", "train")
+model.fit(X, y)
+save_model(model, "logistic_regression", "logistic_regression.joblib")

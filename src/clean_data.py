@@ -14,14 +14,13 @@ df = pd.read_csv(get_raw_data_path(), na_values=" ?")
 df.dropna(axis=0, inplace=True)
 
 # Format string type columns
-strip_list = ["workclass", "education","marital_status", "occupation",
+format_list = ["workclass", "education","marital_status", "occupation",
               "relationship", "race", "sex", "native_country", "target"]
-def strip_string_if_not_nan(string: str) -> str:
-    if string is not np.nan:
-        return string.strip().replace("-", "_").lower()
-    else:
-        return string
-df[strip_list] = df[strip_list].applymap(strip_string_if_not_nan)
+
+def format_string(string: str) -> str:
+    return string.strip().replace("-", "_").lower()
+
+df[format_list] = df[format_list].applymap(format_string)
 
 # Specify generical "Other" in race
 df["race"].replace("Other", "other_race", inplace=True)
@@ -46,28 +45,30 @@ df["marital_status"].replace(to_replace=rep_dict_marriage, inplace=True)
 # Drop useless columns (we already have `education_num`)
 df.drop(labels=["fnlwgt", "education"], axis=1, inplace=True)
 
-# Get dummies
-df = pd.get_dummies(df, prefix=["wrk_cls",
-                                "marriage",
-                                "occup",
-                                "rel",
-                                "race",
-                                "",
-                                "from",],
-                        prefix_sep=["_",
-                                    "_",
-                                    "_",
-                                    "_",
-                                    "_",
-                                    "",
-                                    "_"],
-                        columns=["workclass",
-                                 "marital_status",
-                                 "occupation",
-                                 "relationship",
-                                 "race",
-                                 "sex",
-                                 "native_country"])
+# df.rename(columns={col: format_string(col) for col in df.columns})
+
+# # Get dummies
+# df = pd.get_dummies(df, prefix=["wrk_cls",
+#                                 "marriage",
+#                                 "occup",
+#                                 "rel",
+#                                 "race",
+#                                 "",
+#                                 "from",],
+#                         prefix_sep=["_",
+#                                     "_",
+#                                     "_",
+#                                     "_",
+#                                     "_",
+#                                     "",
+#                                     "_"],
+#                         columns=["workclass",
+#                                  "marital_status",
+#                                  "occupation",
+#                                  "relationship",
+#                                  "race",
+#                                  "sex",
+#                                  "native_country"])
 
 df_train, df_test = train_test_split(df, test_size=.25, stratify=df["target"],
                                      random_state=SEED)
