@@ -18,12 +18,15 @@ def get_model(model_class, name) -> None:
     path = os.path.join(path, name)
     return load(path)
 
-def grid_search_cv(model, parameters, *data, K=5, verbose=0):
+def grid_search_cv(model, parameters, *data, K=5, verbose=0, n_jobs=8):
     cv = StratifiedKFold(n_splits=K)
-    best_model = GridSearchCV(estimator=model, param_grid=parameters, n_jobs=8,
-                              cv=cv, verbose=verbose)
+    best_model = GridSearchCV(estimator=model,
+                              param_grid=parameters,
+                              n_jobs=n_jobs,
+                              cv=cv,
+                              verbose=verbose)
     best_model.fit(*data)
-    print("Best set of parameters for single tree:\n",
+    print(f"Best set of parameters for current {model}:\n",
           best_model.best_params_)
     print("Corresponding score: ",
           best_model.best_score_)

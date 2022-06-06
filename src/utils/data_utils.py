@@ -33,6 +33,7 @@ def get_data_for(model: str, purpose: str) -> Tuple[pd.DataFrame, pd.DataFrame]:
         data = data[["age", "education_num", "sex", "capital_gain",
                      "capital_loss", "hours_per_week", "target"]]
         data["sex"].replace({"male": 1, "female": -1}, inplace=True)
+        data["target"].replace({-1: 0}, inplace=True)
     else:
         pass
 
