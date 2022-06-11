@@ -1,0 +1,7 @@
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=.6\textwidth]{correlation.pdf}
+    \end{center}
+    \caption{Correlações entre as variáveis numéricas do dataset.}
+    \label{fig: corr}
+\end{figure}

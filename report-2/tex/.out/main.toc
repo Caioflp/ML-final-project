@@ -1,0 +1,8 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {portuguese}{}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}Recap do conjunto de dados}{1}{section.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Aplicação dos modelos}{1}{section.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Conclusão}{1}{section.3}%
