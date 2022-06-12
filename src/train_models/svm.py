@@ -23,5 +23,5 @@ param_grid = {
 }
 model = grid_search_cv(pipe, param_grid, X, y, scoring="balanced_accuracy",
                        verbose=4, n_jobs=6, K=2)
-save_model(model, model_class="svm", name="svm_bal_acc_cv.joblib")
+save_model(model, model_class="svm", name="svm_bal_acc_cv")
 

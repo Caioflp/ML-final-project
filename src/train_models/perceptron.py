@@ -25,7 +25,7 @@ param_grid = {
     "perceptron__class_weight": [None, "balanced"]
 }
 model = grid_search_cv(pipe, param_grid, X, y, scoring="roc_auc", verbose=4)
-save_model(model, model_class="perceptron", name="perceptron_roc_auc_cv.joblib")
+save_model(model, model_class="perceptron", name="perceptron_roc_auc_cv")
 
 ## Last validation for roc_auc
 # Best set of parameters for current Pipeline(steps=[('scaler', StandardScaler()),

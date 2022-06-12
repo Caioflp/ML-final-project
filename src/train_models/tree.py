@@ -34,46 +34,46 @@ if False:
                                        scoring="roc_auc", verbose=1)
     save_model(single_tree_model,
                model_class="trees",
-               name="single_tree_roc_auc_cv.joblib")
+               name="single_tree_roc_auc_cv")
 
-best_tree = get_model(mode_class="trees", "single_tree_roc_auc_cv")
+best_tree = get_model(model_class="trees", name="single_tree_roc_auc_cv")
+best_params = best_tree.best_params_
 
 ## Bagging
 
-bag_of_trees = BaggingClassifier(DecisionTreeClassifier(criterion="gini",
-                                                        random_state=SEED),
+bag_of_trees = BaggingClassifier(DecisionTreeClassifier(**best_params),
                                 n_jobs=2, random_state=SEED)
 
 param_grid_bag = {
-    "n_estimators": [25, 50, 75, 100],
-    "max_samples": np.linspace(.1, 1.0, num=5),
-    "max_features": np.linspace(.1, 1.0, num=5),
-    "base_estimator__class_weight": [None, "balanced"],
-    "base_estimator__max_depth": list(range(3, 10)),
-    "base_estimator__min_samples_leaf": np.linspace(start=0.01, stop=.2, num=5),
-    "base_estimator__min_samples_split": np.linspace(start=0.001, stop=0.01, num=5),
-    "base_estimator__ccp_alpha": [np.power(10.0, i) for i in range(-3, 2)],
+    "n_estimators": [100, 200, 300, 400],
+    "max_samples": np.linspace(.2, 1.0, num=5),
+    "max_features": np.linspace(.2, 1.0, num=5),
+    # "base_estimator__class_weight": [None, "balanced"],
+    # "base_estimator__max_depth": list(range(3, 10)),
+    # "base_estimator__min_samples_leaf": np.linspace(start=0.01, stop=.2, num=5),
+    # "base_estimator__min_samples_split": np.linspace(start=0.001, stop=0.01, num=5),
+    # "base_estimator__ccp_alpha": [np.power(10.0, i) for i in range(-3, 2)],
 }
 
 if True:
     bag_of_trees_model = grid_search_cv(bag_of_trees, param_grid_bag, X, y,
                                         scoring="roc_auc", verbose=2, n_jobs=4)
     save_model(bag_of_trees_model, model_class="trees",
-               name="bag_of_trees_roc_auc_cv.joblib")
+               name="bag_of_trees_roc_auc_cv")
 
 ## Random Forest
 
-random_forest = RandomForestClassifier(criterion="gini", random_seed=SEED,
-                                       n_jobs=2)
-param_grid_bag = {
-    "n_estimators": [25, 50, 75, 100],
+random_forest = RandomForestClassifier(**best_params, n_jobs=2)
+
+param_grid_forest = {
+    "n_estimators": [100, 200, 300, 400],
     "max_samples": np.linspace(.1, 1.0, num=5),
     "max_features": np.linspace(.1, 1.0, num=5),
-    "base_estimator__class_weight": [None, "balanced"],
-    "base_estimator__max_depth": list(range(0, 10)),
-    "base_estimator__min_samples_leaf": np.linspace(start=0.01, stop=.2, num=5),
-    "base_estimator__min_samples_split": np.linspace(start=0.001, stop=0.01, num=5),
-    "base_estimator__ccp_alpha": [np.power(10.0, i) for i in range(-3, 2)],
+    # "base_estimator__class_weight": [None, "balanced"],
+    # "base_estimator__max_depth": list(range(0, 10)),
+    # "base_estimator__min_samples_leaf": np.linspace(start=0.01, stop=.2, num=5),
+    # "base_estimator__min_samples_split": np.linspace(start=0.001, stop=0.01, num=5),
+    # "base_estimator__ccp_alpha": [np.power(10.0, i) for i in range(-3, 2)],
 }
 
 if True:
@@ -85,4 +85,4 @@ if True:
                                          verbose=2)
     save_model(random_forest_model,
                model_class="trees",
-               name="random_forest_roc_auc_cv.joblib")
+               name="random_forest_roc_auc_cv")
