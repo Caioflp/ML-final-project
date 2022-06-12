@@ -47,8 +47,10 @@ The objective is to predict if a given individual makes more or less than
 ## 11/06
 
 * Criar o esqueleto para rodar os modelos de perceptron e SVM
+* Testar o que acontece com variáveis categóricas em árvores
 * Escrever a primeira seção do relatório
 * Decidir o que fazer com o problema de under/oversampling
 * Escrever o que foi pesquisado no relatório
+* Montar esqueleto para avaliar modelos no conjunto de teste
 * Começar a escrever sobre os modelos (perceptron e um pouco de árvores,
   talvez)

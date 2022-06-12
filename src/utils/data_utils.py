@@ -16,13 +16,13 @@ def get_data_for(model: str, purpose: str) -> Tuple[pd.DataFrame, pd.DataFrame]:
     Parameters
     ----------
     model:
-        Name of kind of model. One of: "tree", "svm", "logit".
+        Name of kind of model. One of: "tree", "svm", "logit" or "perceptron".
     purpose:
         "train" or "test"
     """
     data = get_train_data() if purpose == "train" else get_test_data()
 
-    if model == "logit":
+    if model == "logit" or model == "perceptron" or model == "svm":
         pre =     ["wrk_cls", "marriage", "occup", "rel", "race", "", "from",]
         pre_sep = ["wrk_cls", "marriage", "occup", "rel", "race", "", "from",]
         col =     ["workclass", "marital_status", "occupation", "relationship",
@@ -33,7 +33,6 @@ def get_data_for(model: str, purpose: str) -> Tuple[pd.DataFrame, pd.DataFrame]:
         data = data[["age", "education_num", "sex", "capital_gain",
                      "capital_loss", "hours_per_week", "target"]]
         data["sex"].replace({"male": 1, "female": -1}, inplace=True)
-        data["target"].replace({-1: 0}, inplace=True)
     else:
         pass
 

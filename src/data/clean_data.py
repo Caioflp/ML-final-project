@@ -6,7 +6,10 @@ from sklearn.model_selection import train_test_split
 
 sys.path.append("../")
 
-from utils import *
+from utils.path_utils import (get_raw_data_path,
+                              get_train_data_path,
+                              get_test_data_path)
+from utils.model_utils import SEED
 
 pd.set_option("display.max_columns", 500)
 pd.set_option("display.max_rows", 500)
@@ -30,12 +33,13 @@ df["race"].replace("Other", "other_race", inplace=True)
 
 # Replace strings in target column by ones and zeroes
 rep_dict_target = {
-    "<=50k": -1,
-    "<=50k.": -1,
+    "<=50k": 0,
+    "<=50k.": 0,
     ">50k": 1,
     ">50k.": 1
 }
 df["target"].replace(to_replace=rep_dict_target, inplace=True)
+print(1 - df["target"].mean())
 
 # Better marital status names
 rep_dict_marriage = {

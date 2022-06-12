@@ -13,15 +13,25 @@ X, y = get_data_for("logit", "train")
 
 pipe = Pipeline([("scaler", StandardScaler()),
                  ("logit", LogisticRegression(penalty="elasticnet",
-                                              tol=1e-4,
+                                              fit_intercept=False,
                                               random_state=SEED,
                                               solver="saga",
-                                              max_iter=1000,
-                                              warm_start=True))])
+                                              max_iter=500))])
 # Parameters' names are adapted to work with pipelines
 param_grid = {
-    "logit__C": [np.power(10.0, i) for i in range(-1, 2)],
-    "logit__l1_ratio": np.linspace(start=0, stop=1, num=3),
+    "logit__tol": [np.power(10.0, i) for i in range(-4, -2)],
+    "logit__C": [np.power(10.0, i) for i in range(-2, 1)],
+    "logit__l1_ratio": np.linspace(start=0, stop=1, num=5),
+    "logit__class_weight": [None, "balanced"],
 }
-model = grid_search_cv(pipe, param_grid, X, y)
-save_model(model, model_class="logit", name="logit_cross_validated.joblib")
+model = grid_search_cv(pipe, param_grid, X, y, scoring="roc_auc", verbose=4)
+save_model(model, model_class="logit", name="logit_roc_auc_cv.joblib")
+
+# Last cross validation results
+# Best set of parameters for current Pipeline(steps=[('scaler', StandardScaler()),
+#                 ('logit',
+#                  LogisticRegression(fit_intercept=False, max_iter=500,
+#                                     penalty='elasticnet', random_state=42,
+#                                     solver='saga'))]):
+#  {'logit__C': 0.01, 'logit__class_weight': 'balanced', 'logit__l1_ratio': 0.25, 'logit__tol': 0.001}
+# Corresponding score:  0.9036877022769026
