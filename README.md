@@ -5,52 +5,12 @@ EMAp-FGV. The data used was obtained [here](https://archive.ics.uci.edu/ml/datas
 The objective is to predict if a given individual makes more or less than
 50K USD per year.
 
-## Report structure
+## Models used
 
-* Linear regression
+* Perceptron
 * Logistic Regression
 * Tree methods
     - single tree
     - bagging
     - random forest
-    - boosting
-* Support vector machines
-* Try feature selection (using variance of even the models themselves)
-
-## Possible classification algorithms
-
-* Linear Regression
-* Logistic regression
-    - Regularization
-    - Optimization algorithm
-    - Scale data
-* K Nearest Neighbours
-* Classification Trees
-* SVM
-
-## Other ideas
-
-* Recreate missing data using something like an EM algorithm or MCMC
-* Explore some unsupervised learning algorithms to find clusters in data
-* Use some of the sklearn functions to perform feature reduction
-
-## TODO
-
-* keep or discard capital gain and capital loss features
-* DO NOT use cross validated parameters for a model in another one.
-  Redo the cross validation.
-* Try to use categorical data with trees: one vs all type split.
-  Insert a categorical variable with few labels and see what comes out.
-* Discuss new methods that were used and not seen in the course
-* Study over/undersampling problem
-
-## 11/06
-
-* Criar o esqueleto para rodar os modelos de perceptron e SVM
-* Testar o que acontece com variáveis categóricas em árvores
-* Escrever a primeira seção do relatório
-* Decidir o que fazer com o problema de under/oversampling
-* Escrever o que foi pesquisado no relatório
-* Montar esqueleto para avaliar modelos no conjunto de teste
-* Começar a escrever sobre os modelos (perceptron e um pouco de árvores,
-  talvez)
+* Support vector machine

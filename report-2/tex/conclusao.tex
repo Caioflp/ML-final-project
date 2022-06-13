@@ -1,0 +1,15 @@
+\section{Conclusão}
+
+Neste trabalho, nos propusemos a utilizar modelos de classificação para estudar o conjunto de dados \cite{uci}, com objetivo de prever/explicar a variável resposta, relativa à renda dos indivíduos.
+
+Nesse sentido, na primeira parte realizamos uma análise exploratória, idenficando variáveis de interesse e possíveis problemas que deveríamos contornar.
+Em primeiro lugar, nos deparamos com dados faltantes.
+A solução utilizada para esse problema foi a de simplesmente desconsiderar os indivíduos que possuíssem alguma \emph{feature} latente.
+Em segundo lugar, percebemos que o desbalanceamento do \emph{dataset} poderia criar um viés indesejado em favor da classe negativa.
+Para contrabalancear essa tendência, utilizamos um mecanismo de pesos para cada classe, que demonstrou ser efetivo em quase todos os modelos analisados.
+
+Ao treinarmos os classificadores, vimos que a estratégia de validação cruzada utilizada foi efetiva, pois as perdas nos conjuntos de treino e teste ficaram muito próximas.
+Isto é, não houve overfitting significativo.
+Também vimos que as \emph{features} que mais foram classificadas como relevantes foram: \verb|capital_gain|, o grau de educação, a idade e as relações conjugais de cada indivíduo.
+A \emph{feature} \verb|capital_gain| é a única cujo significado não é inteiramente conhecido, por não ser informado na página do \emph{dataset}.
+Por ser diferente de \verb|target|, podemos inferir que se trata de ganhos monetários além de salários.

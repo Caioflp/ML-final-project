@@ -29,7 +29,7 @@ param_grid_tree = {
     "min_samples_leaf": np.linspace(start=0.01, stop=.2, num=5),
     "min_samples_split": np.linspace(start=0.001, stop=0.01, num=5),
 }
-if False:
+if True:
     single_tree_model = grid_search_cv(single_tree, param_grid_tree, X, y,
                                        scoring="roc_auc", verbose=1)
     save_model(single_tree_model,
@@ -48,11 +48,6 @@ param_grid_bag = {
     "n_estimators": [100, 200, 300, 400],
     "max_samples": np.linspace(.2, 1.0, num=5),
     "max_features": np.linspace(.2, 1.0, num=5),
-    # "base_estimator__class_weight": [None, "balanced"],
-    # "base_estimator__max_depth": list(range(3, 10)),
-    # "base_estimator__min_samples_leaf": np.linspace(start=0.01, stop=.2, num=5),
-    # "base_estimator__min_samples_split": np.linspace(start=0.001, stop=0.01, num=5),
-    # "base_estimator__ccp_alpha": [np.power(10.0, i) for i in range(-3, 2)],
 }
 
 if True:
@@ -69,11 +64,6 @@ param_grid_forest = {
     "n_estimators": [100, 200, 300, 400],
     "max_samples": np.linspace(.1, 1.0, num=5),
     "max_features": np.linspace(.1, 1.0, num=5),
-    # "base_estimator__class_weight": [None, "balanced"],
-    # "base_estimator__max_depth": list(range(0, 10)),
-    # "base_estimator__min_samples_leaf": np.linspace(start=0.01, stop=.2, num=5),
-    # "base_estimator__min_samples_split": np.linspace(start=0.001, stop=0.01, num=5),
-    # "base_estimator__ccp_alpha": [np.power(10.0, i) for i in range(-3, 2)],
 }
 
 if True:

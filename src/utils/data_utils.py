@@ -24,11 +24,10 @@ def get_data_for(model: str, purpose: str) -> Tuple[pd.DataFrame, pd.DataFrame]:
 
     if model == "logit" or model == "perceptron" or model == "svm":
         pre =     ["wrk_cls", "marriage", "occup", "rel", "race", "", "from",]
-        pre_sep = ["wrk_cls", "marriage", "occup", "rel", "race", "", "from",]
-        col =     ["workclass", "marital_status", "occupation", "relationship",
-                      "race", "sex", "native_country"]
+        pre_sep = ["_", "_", "_", "_", "_", "", "_",]
+        col =     ["workclass", "marital_status", "occupation", "relationship", "race", "sex", "native_country"]
         data = pd.get_dummies(data, prefix=pre, prefix_sep=pre_sep, columns=col)
-    elif model == "tree":
+    elif model == "trees":
         # Select only numeric and binary categorical variables
         data = data[["age", "education_num", "sex", "capital_gain",
                      "capital_loss", "hours_per_week", "target"]]

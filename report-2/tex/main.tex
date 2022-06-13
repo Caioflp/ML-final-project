@@ -6,14 +6,17 @@
 \usepackage{csquotes}
 \usepackage{hyperref}
 \usepackage{graphicx}
-\graphicspath{{../fig}}
+\graphicspath{{../../images}}
 \usepackage{float}
+\usepackage[nomarkers, figuresonly]{endfloat}
+
+\newcommand{\by}{\boldsymbol{y}}
 
 \hfuzz=16pt
 
 \addbibresource{../bib/references.bib}
 
-\title{Modelos de classificação em previsão de renda} 
+\title{Modelos de classificação aplicados a previsão de renda} 
 \author{Professor: Rodrigo Targino \\
         Aluno: Caio Lins}
 \date{\today}
@@ -24,44 +27,18 @@
 
 \tableofcontents
 
-\section{Recap do conjunto de dados}
+\abstract{
+    Neste trabalho, utilizamos classificadores implementados na biblioteca \emph{Sci-Kit Learn}\cite{scikit-learn} para analisar alguns dados extraídos do censo populacional americano de 1994\cite{uci}, com o objetivo de prever e explicar a variável resposta, que indica se a renda anual de um indivíduo é maior ou menor que \( \$ 50 000 \).
+    Após extensa validação cruzada e aplicação de técnicas para contornar a natureza desbalanceada do conjunto de dados, concluímos que a educação, a idade, as relações conjugais e os ganhos capitais externos de cada indivíduo são as variáveis que melhor explicam o \emph{target}.
+    Todo o código utilizado (inclusive o que gerou este documento) pode ser encontrado \href{https://github.com/Caioflp/ML-final-project.git}{neste repositório}.
+}
 
-% Relembrar qual é o dataset, dizer o que foi feito para lidar com
-% dados faltantes, falar sobre divisão entre teste e treino
+\input{recap}
+\input{metodologia}
+\input{results}
+\input{conclusao}
 
-\section{Aplicação dos modelos}
-
-% Discussão sobre datasets desbalanceados: O que fazer para resolver
-% undersampling, oversampling, pesos, etc. Vantagens e desvantagens de
-% cada um
-% balanced accuracy score
-% https://imbalanced-learn.org/stable/common_pitfalls.html
-% https://github.com/scikit-learn/scikit-learn/issues/4324
-% https://gking.harvard.edu/files/0s.pdf
-% Balancing the dataset: Funciona quando sabemos a proporção verdadeira
-% que ocorre na natureza do evento estudado. Feita para corrigir um
-% sampling bias.
-% Métricas: balanced_accuracy_score, auc
-% Balancear para aproximar do real vs balancear para aprender melhor o que caracteriza o positivo
-
-% Fazer uma subseção por modelo. Discutir performance, quais variáveis o
-% modelo indica serem as mais relevantes, abordar as características de
-% cada modelo, falar sobre coisas que foram utilizadas e que não foram
-% vistas em sala. Colocar matrizes de confusão, plots de curva ROC, as
-% árvores construídas. Fazer coisas bonitinhas.
-
-% Modelos utilizados:
-% Perceptron
-% Regressão Logística
-% Métodos baseados em árvores
-    % Uma árvore
-    % bagging
-    % random forest
-    % boosting
-% SVMs
-% Usar a ROC na hora de avaliar o modelo
-
-\section{Conclusão}
+\printbibliography
 
 \end{document}
 

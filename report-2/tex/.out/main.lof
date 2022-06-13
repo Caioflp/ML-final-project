@@ -1,4 +1,24 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \babel@toc {portuguese}{}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Correlações entre as variáveis numéricas do dataset.}}{6}{figure.1}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Matriz de confusão e curva ROC para o modelo perceptron. AUC = 0.648.}}{9}{figure.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2}{\ignorespaces Feautures com maiores valores absolutos de pesos, positivos e negativos, para o perceptron.}}{10}{figure.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3}{\ignorespaces Matriz de confusão e curva ROC para o modelo de regressão logística. AUC = 0.901.}}{11}{figure.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4}{\ignorespaces Feautures com maiores valores absolutos de pesos pesos, positivos e negativos, para a regressão logística.}}{12}{figure.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5}{\ignorespaces Matriz de confusão e curva ROC para uma única árvore. AUC = 0.838.}}{13}{figure.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6}{\ignorespaces Features com maiores importâncias, de acordo com uma única árvore.}}{14}{figure.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7}{\ignorespaces Árvore obtidas ao fitarmos apenas um classificador no dataset.}}{15}{figure.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {8}{\ignorespaces Matriz de confusão e curva ROC para um \emph {bag of trees}. AUC = 0.856.}}{16}{figure.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {9}{\ignorespaces Matriz de confusão e curva ROC para um \emph {bag of trees}. AUC = 0.856.}}{17}{figure.9}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {10}{\ignorespaces Features com maiores importâncias, de acordo com uma \emph {random forest}.}}{18}{figure.10}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {11}{\ignorespaces Matriz de confusão para o SVM.}}{19}{figure.11}%

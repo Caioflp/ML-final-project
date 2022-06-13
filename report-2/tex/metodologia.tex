@@ -1,0 +1,48 @@
+\section{Metodologia utilizada}
+
+O problema de ter um \emph{dataset} desbalanceado é muito comum, e portanto, existem algumas formas já consolidadas de contorná-lo.
+Duas dessas técnicas são o \emph{over sampling} e \emph{under sampling}.
+Na primeira, acrescenta-se, artificialemente, mais instâncias da classe menos respresentada ao \emph{dataset}.
+Isso pode ser feito repetindo instâncias já conhecidas, ou criando instâncias sintéticas.
+Na segunda, remove-se instâncias pertencentes a classes dominantes.
+Apesar de bastante comumns para resolver esse tipo de problema, essas duas alternativas não foram utilizadas.
+
+A estratégia que utilizamos para contrapor o viés do conjunto de dados envolveu duas components.
+Primeiramente, selecionamos os hiperparâmetros de cada modelo com um \emph{grid search cross validation}, tomando como referência uma métrica diferente do \emph{score}, que levasse em conta o desempenho dele nas duas classes.
+As métricas escolhidas foram a \textbf{AUC} (\emph{Area Under Curve}), que mede a área debaixo da curva \textbf{ROC} (\emph{Receiver Operating Characteristic}), e, no caso do SVM (que não estima probabilidades), a \emph{balanced accuracy score}, que corresponde à média aritmética entre o \emph{recall}
+\footnote{\emph{Score} dentro de uma dada classe. Em classificação binária, se refere ao \emph{score} para a classe positiva.}
+e a especificidade
+\footnote{\emph{Recall} para a classe negativa.}.
+Utilizamos a média aritmética por não termos motivações reais para priorizar o \emph{recall} ou a especificidade.
+
+Em segundo lugar, durante o treino de cada modelo, utilizamos pesos diferentes para as duas classes.
+Essa abordagem já está implementada nos estimadores do \emph{Sci-Kit Learn} (ao especificar o hiperparâmetro \verb|class_weights = "balanced"|) e corresponde a multiplicar as perdas individuais por um peso específico da classe verdadeira da instância.
+Para exemplificar essa abordagem e como o cálculo dos pesos é feito, utilizamos~\cite[Páginas 144-5]{king01} como referência, o mesmo artigo utilizado como base pelos desenvolvedores do \emph{Sci Kit Learn} para implementar essa funcionalidade, como pode-se ver \href{https://scikit-learn.org/stable/modules/generated/sklearn.utils.class_weight.compute_class_weight.html}{aqui}.
+
+Suponha que estamos realizando uma regressão logística.
+Denotamos por \( \pi_{ i } \) a probabilidade estimada pelo modelo de que a \( i \)-ésima instância de treino seja positiva, por \( \beta \) os pesos do modelo e por \( y_{ i } \) a variável resposta.
+Então a log-verossimilhança dos dados é dada por
+\begin{equation*}
+    \log L ( \beta \mid \by ) = \sum_{ y_{ i } = 1 } \log \pi_{ i }
+    + \sum_{ y_{ i } - 0 } \log ( 1 - \pi_{ i } )
+.\end{equation*}
+Supondo que a proporção real de ocorrência do evento estudado é \( \tau \in [0, 1] \) e a proporção no conjunto de dados é \( \overline{ y } \), a log-verossimilhança ponderada pelos pesos \( w = \left\{ w_{ 0 }, w_{ 1 } \right\} \) é dada por
+\begin{equation*}
+    \log_{ w } L ( \beta \mid \by ) =
+    w_{ 1 } \sum_{ y_{ i } = 1 } \log \pi_{ i } + w_{ 0 } \sum_{ y_{ i } = 0 } \log ( 1 - \pi_{ i } )
+,\end{equation*}
+onde \( w_{ 1 } = \tau / \overline{ y } \) e \( w_{ 0 } = ( 1 - \tau ) / ( 1 - \overline{ y } ) \).
+Ao dividir pela proporção no \emph{dataset} e multiplicar pela proporção real, estamos corrigindo o viés provocado pela amostragem.
+A extensão para múltiplas classes é feita de maneira análoga.
+Outro link que pode ser de ajuda para entender a ideia do balanceamento é \href{https://github.com/scikit-learn/scikit-learn/issues/4324}{este}.
+
+Na implementação do \emph{Sci-Kit Learn}, como é possível ver no link já apresentado, pressupõe-se que, fora do \emph{dataset}, todas as classes possuem a mesma frequência, o que podemos pressupor, com segurança, não ser verdade no nosso caso.
+Entretanto, ao realizar validação cruzada, vemos que, para \textbf{quase todos os modelos testados}, a versão com pesos se saiu melhor do que a versão sem pesos.
+
+\subsection{Abordagem geral}
+
+Feita essa discussão sobre dados desbalanceados, especificiamos agora qual foi a abordagem geral para treinar os modelos.
+Inicialmente, separamos \( 25\% \) dos dados para teste e o restante para treino.
+O dado de teste só foi utilizado para computar os resultados apresentados na seção seguinte.
+Em seguida, como mencionamos anteriormente, selecionamos os melhores hiperparâmetros para cada modelo com um \emph{grid search cross validation}, por meio de uma função disponível no \emph{Sci-Kit Learn}.
+Procuramos explorar ao máximo o espaço de hiperparâmetros, dados os recursos computacionais disponíveis.

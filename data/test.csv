@@ -11304,3 +11304,4 @@ age,workclass,education_num,marital_status,occupation,relationship,race,sex,capi
 42,private,10,civ_spouse,tech_support,husband,white,male,0,0,40,united_states,1
 28,private,10,civ_spouse,exec_managerial,husband,amer_indian_eskimo,male,0,0,55,united_states,0
 36,local_gov,13,divorced,prof_specialty,not_in_family,white,female,0,0,60,united_states,0
+32,private,10,never_married,machine_op_inspct,other_relative,white,female,0,2205,40,holand_netherlands,0

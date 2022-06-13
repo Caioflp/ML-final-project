@@ -39,7 +39,6 @@ rep_dict_target = {
     ">50k.": 1
 }
 df["target"].replace(to_replace=rep_dict_target, inplace=True)
-print(1 - df["target"].mean())
 
 # Better marital status names
 rep_dict_marriage = {
@@ -52,32 +51,16 @@ df["marital_status"].replace(to_replace=rep_dict_marriage, inplace=True)
 # Drop useless columns (we already have `education_num`)
 df.drop(labels=["fnlwgt", "education"], axis=1, inplace=True)
 
-# df.rename(columns={col: format_string(col) for col in df.columns})
+# print(df[df["native_country"] == "holand_netherlands"])
 
-# # Get dummies
-# df = pd.get_dummies(df, prefix=["wrk_cls",
-#                                 "marriage",
-#                                 "occup",
-#                                 "rel",
-#                                 "race",
-#                                 "",
-#                                 "from",],
-#                         prefix_sep=["_",
-#                                     "_",
-#                                     "_",
-#                                     "_",
-#                                     "_",
-#                                     "",
-#                                     "_"],
-#                         columns=["workclass",
-#                                  "marital_status",
-#                                  "occupation",
-#                                  "relationship",
-#                                  "race",
-#                                  "sex",
-#                                  "native_country"])
+df.rename(columns={col: format_string(col) for col in df.columns})
 
 df_train, df_test = train_test_split(df, test_size=.25, stratify=df["target"],
                                      random_state=SEED)
+
+# Insert single entry on test, because this is causing feature numbers to be
+# different after dummies
+df_test = pd.concat([df_test, df_train[df_train["native_country"] == "holand_netherlands"]])
+
 df_train.to_csv(get_train_data_path(), index=False)
 df_test.to_csv(get_test_data_path(), index=False)

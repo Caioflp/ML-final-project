@@ -1,7 +1,102 @@
 \begin{figure}[htb]
     \begin{center}
-        \includegraphics[width=.6\textwidth]{correlation.pdf}
+        \includegraphics[width=.6\textwidth]{matrix_perceptron.pdf} \\
+        \includegraphics[width=.6\textwidth]{roc_curve_perceptron.pdf}
     \end{center}
-    \caption{Correlações entre as variáveis numéricas do dataset.}
-    \label{fig: corr}
+    \caption{Matriz de confusão e curva ROC para o modelo perceptron. AUC = 0.648.}
+    \label{perceptron metric}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=.7\textwidth]{coefs_perceptron.pdf}
+    \end{center}
+    \caption{Feautures com maiores valores absolutos de pesos, positivos e negativos, para o perceptron.}
+    \label{perceptron feature}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=.6\textwidth]{matrix_logit.pdf} \\
+        \includegraphics[width=.6\textwidth]{roc_curve_logit.pdf}
+    \end{center}
+    \caption{Matriz de confusão e curva ROC para o modelo de regressão logística. AUC = 0.901.}
+    \label{logit metric}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=.7\textwidth]{coefs_logit.pdf}
+    \end{center}
+    \caption{Feautures com maiores valores absolutos de pesos pesos, positivos e negativos, para a regressão logística.}
+    \label{logit feature}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=.6\textwidth]{matrix_single_tree.pdf} \\
+        \includegraphics[width=.6\textwidth]{roc_curve_single_tree.pdf}
+    \end{center}
+    \caption{Matriz de confusão e curva ROC para uma única árvore. AUC = 0.838.}
+    \label{single tree metric}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=.7\textwidth]{single_tree_feature_importances.pdf}
+    \end{center}
+    \caption{Features com maiores importâncias, de acordo com uma única árvore.}
+    \label{single tree feature}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=\textwidth]{tree/Source.gv.pdf}
+    \end{center}
+    \caption{Árvore obtidas ao fitarmos apenas um classificador no dataset.}
+    \label{plot tree}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=.6\textwidth]{matrix_bag_of_trees.pdf} \\
+        \includegraphics[width=.6\textwidth]{roc_curve_bag_of_trees.pdf}
+    \end{center}
+    \caption{Matriz de confusão e curva ROC para um \emph{bag of trees}. AUC = 0.856.}
+    \label{bag of trees metric}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=.6\textwidth]{matrix_bag_of_trees.pdf} \\
+        \includegraphics[width=.6\textwidth]{roc_curve_bag_of_trees.pdf}
+    \end{center}
+    \caption{Matriz de confusão e curva ROC para um \emph{bag of trees}. AUC = 0.856.}
+    \label{random forest metric}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=.7\textwidth]{random_forest_feature_importances.pdf}
+    \end{center}
+    \caption{Features com maiores importâncias, de acordo com uma \emph{random forest}.}
+    \label{random forest feature}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=.6\textwidth]{matrix_svm.pdf} \\
+    \end{center}
+    \caption{Matriz de confusão para o SVM.}
+    \label{svm metric}
 \end{figure}

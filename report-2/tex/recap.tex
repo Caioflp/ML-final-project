@@ -1,0 +1,26 @@
+\section{\emph{Recap} do conjunto de dados}
+
+Relembrando o que foi apresentado no relatório anterior, estamos trabalhando com o \emph{``Census Income Data Set''}~\cite{uci}.
+Nossa tarefa é classificar cada indivíduo que participou do censo com relação à sua renda: se ele ganha mais que \$ 50 000 por ano, ou não.
+À nossa disposição, temos uma série de variáveis de caráter socioeconômico, categóricas e quantitativas, dentre as quais gostaríamos de identificar aquelas que melhor explicam a variável resposta.
+Para tanto, treinamos, no nosso conjunto de dados, modelos de classificação que possuem uma boa explicabilidade, ou seja, que não são modelos do tipo ``caixa preta''.
+Foram eles, em ordem crescente de complexidade: \emph{perceptron}, regressão logística, modelos baseados em árvores (uma árvore, \emph{bagging} e \emph{random forest}) e \emph{support vector machines (SVM)}.
+
+\subsection{\emph{Old problems and new}}
+
+No último relatório foi apontado que o conjunto de dados apresentava algumas lacunas, em três \emph{features} diferentes.
+Apesar de, inicialmente, termos considerado utilizar técnicas estatísticas para preencher os dados, como, por exemplo, o algoritmo EM, por uma questão de (falta de) recursos humanos não foi possível implementar essa ideia.
+A solução utilizada foi a mais simples: descartamos as amostras que possuíam alguma \emph{feature} faltante.
+Como elas eram poucas (\( \sim 2800 \), contra as \( \sim 48 000 \) totais), isso não representou uma perda muito significativa.
+
+Entretanto, uma questão não considerada anteriormente se apresentou quando começamos as treinar modelos: o \textbf{desbalanceamento do \emph{dataset}}.
+A proporção entre instâncias positivas (ganham mais que 50K) e negativas é de, aproximadamente, 1:3, ou seja, \( \sim 25 \% \) dos indivíduos tem renda elevada.
+Apesar de não ser exageradamente expressiva, essa assimetria faz com que haja uma tendência para classificar uma determinada instância como negativa.
+
+Ressaltamos que isso não necessariamente é um problema, pois tudo depende de qual é o objetivo da análise que está sendo conduzida.
+Se a proporção entre classes fora do \emph{dataset} é a mesma de dentro \emph{dataset} e, por algum motivo, deseja-se apenas obter o modelo com melhor \emph{score}
+\footnote{Proporção de instâncias classificadas corretamente.},
+não importa muito se há um forte viés para alguma das classes.
+Entretanto, raramente esse é o caso em aplicações reais de \emph{machine learning}.
+No nosso problema, por exemplo, não é útil que todos os coeficientes da regressão logística sejam muito baixos, pois isso diz pouco sobre a relevância de cada um para explicar a variável resposta.
+Portanto, foi necessário utilizar uma estratégia para contrabalancear o viés no conjunto de dados.

@@ -1,8 +1,28 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \babel@toc {portuguese}{}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1}Recap do conjunto de dados}{1}{section.1}%
+\contentsline {section}{\numberline {1}\emph {Recap} do conjunto de dados}{2}{section.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}Aplicação dos modelos}{1}{section.2}%
+\contentsline {subsection}{\numberline {1.1}\emph {Old problems and new}}{2}{subsection.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Conclusão}{1}{section.3}%
+\contentsline {section}{\numberline {2}Metodologia utilizada}{2}{section.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1}Abordagem geral}{3}{subsection.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Resultados dos Modelos}{4}{section.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1}Perceptron}{4}{subsection.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2}Regressão Logística}{4}{subsection.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3}Modelos baseados em árvores}{5}{subsection.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.1}Uma árvore}{5}{subsubsection.3.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.2}\emph {Bag of trees}}{5}{subsubsection.3.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.3}\emph {Random Forest}}{6}{subsubsection.3.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4}SVM}{6}{subsection.3.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Conclusão}{7}{section.4}%

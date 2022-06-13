@@ -19,6 +19,7 @@ pipe = Pipeline([("scaler", StandardScaler()),
                                            max_iter=1000))])
 # Parameters' names are adapted to work with pipelines
 param_grid = {
+    "perceptron__alpha": [np.power(10.0, i) for i in range(-4, 3)],
     "perceptron__eta0": np.linspace(start=0.1, stop=1, num=10),
     "perceptron__tol": [np.power(10.0, i) for i in range(-5, -2)],
     "perceptron__l1_ratio": np.linspace(start=0, stop=1, num=10),
